@@ -1,6 +1,7 @@
-import React, {useState, useRef} from 'react'
+import React, {useState} from 'react'
 import { connect } from 'react-redux';
-import { addTodos, removeTodos, updateTodos } from '../redux/reducer';
+import { addTodos, removeTodos, updateTodos, completeTodos } from '../redux/reducer';
+import {GoPlus} from "react-icons/go";
 
 const mapStateToProps = (state) =>{
     return{
@@ -13,34 +14,23 @@ const mapDispatchToProps = (dispatch) =>{
         addTodo: (obj) => dispatch(addTodos(obj)),
         removeTodo: (id) => dispatch(removeTodos(id)),
         updateTodo: (obj) => dispatch(updateTodos(obj)),
+        completeTodo: (id) => dispatch(completeTodos(id)),
     };
 };
-
 const Todos = (props) => {
     const [todo, setTodo] = useState("");
-    const inputRef = useRef(true);
-    const changeFocus = () =>{
-        inputRef.current.disabled = false;
-        inputRef.current.focus();
-    };
-    const update = (id, value,e) =>{
-        if(e.which === 13){
-            props.updateTodo({id, item:value });
-            inputRef.current.disabled = true;
-        }
-    };
+
+    
     const handleChange = (e) =>{
         setTodo(e.target.value);
     };
-    console.log("props from store", props);
+    // console.log("props from store", props);
 
 
     return (
         <div className="addTodos">
             <input 
-                type="text" 
-                name="" 
-                id="" 
+                type="text"
                 onChange={(e)=>handleChange(e)}
                 className="todo-input" />
             <button className="add-btn" onClick={()=>
@@ -49,25 +39,12 @@ const Todos = (props) => {
                     item: todo,
                     completed: false,    
                 })
-            } >Ajouter</button>
-            <ul>
-                {
-                    props.todos.map(item=>{
-                        return (
-                            <li key={item.id}>
-                                <textarea 
-                                    ref={inputRef} 
-                                    disabled={inputRef} 
-                                    defaultValue={item.item}
-                                    onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
-                                /> 
-                                
-                                <button onClick={() => changeFocus()}>Modifier</button>
-                                <button onClick={() => props.removeTodo(item.id)}>Supprimer</button>{" "} 
-                            </li>)
-                    })
-                }
-            </ul>
+            } >
+                <GoPlus />
+
+            </button>
+
+
         </div>
     );
 };

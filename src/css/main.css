@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    line-height: 1.15;
+}
+body{
+    background: linear-gradient(190deg, #8affff 0%, #9945dd 100%);
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #222;
+    overflow: hidden;
+}
+.App{
+    margin: 3rem 0 0;
+    display: flex;
+    flex-direction: column;
+}
+.App h1{
+    display: inline;
+    text-align: center;
+    margin: 0 0 2rem;
+    color: #e1ebfd;
+    text-shadow: 0 0 5px #433aa8, 3px -1px 5px #222;
+}
+.addTodos{
+    display: flex;
+    justify-content: center;
+}
+.todo-input{
+    min-width: 15rem;
+    width: 40vw;
+    max-height: 2.5rem;
+    background-color: #e1ebfd;
+    border: none;
+    padding: 0.5rem 1rem;
+    align-self: center;
+}
+.todo-input:focus{
+    outline: none;
+    border: 2px solid #9945dd;
+}
+.add-btn{
+    margin: 0 0 0 1rem;
+    background-color: #7f24ca;
+    color: #e1ebfd;
+    border-radius: 50%;
+    border: 2px  solid #e1ebfd;
+    width: 3.2rem;
+    height: 3.2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 2px 4px 10px #096464;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-btn:focus{
+    outline: none;
+}
+.displaytodos{
+    margin: 3rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.displaytodos .buttons{
+    margin: 0 0 2rem;
+}
+.displaytodos .buttons button{
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    border:none;
+}
+.displaytodos .buttons button:focus{
+    outline: none;
+}
+.displaytodos .buttons button:not(:last-child){
+    margin-right: 1rem;
+}
+.displaytodos ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+}
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgb(180, 182, 218);
+    background:radial-gradient(circle, 
+    hsla(237, 34%, 78%, 0.9)0%,
+    hsla(219, 88%, 94%, 0.9)100%);
+    margin: 0 1rem 1rem 0;
+    height: 8rem ;
+    width: 18rem;
+    border-radius: 0.5rem ;
+    padding: 1rem;
+}
+.card textarea{
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #e1ebfd;
+    color: #096464;
+}
+.card textarea:disabled{
+    background-color: transparent;
+}
+.card .btns{
+    position: absolute;
+    bottom:1rem;
+    right:1rem;   
+}
+.card .btns button{
+    border-radius: 20%;
+    border: none;
+    margin: 0 0.6rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #096464;
+    background-color: transparent;
+}
+.card .btns button:focus{
+    outline: none;
+}
+.completed{
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    background-color: #7f24ca;
+    border: 2px solid #222;
+    color: #e1ebfd;
+    border-radius: 20px;
+    padding: 0.2rem .5rem;
+
+}
