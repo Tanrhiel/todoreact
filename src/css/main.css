@@ -143,3 +143,9 @@ body{
     padding: 0.2rem .5rem;
 
 }
+
+@media Screen and(max-width){
+    .card{
+        margin: 0;
+    }
+}

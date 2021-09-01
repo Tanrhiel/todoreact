@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import { addTodos, removeTodos, updateTodos, completeTodos } from '../redux/reducer';
 import TodoItem from './TodoItem';
+import { AnimatePresence, motion } from "framer-motion";
 
 const mapStateToProps = (state) =>{
     return{
@@ -29,6 +30,7 @@ export const DisplayItem = (props) => {
                 <button onClick={() => setSort("all")}>All</button>
             </div>
             <ul>
+                <AnimatePresence>
                 {
                     props.todos.length > 0  && sort === "active"?
                     props.todos.map((item) =>{
@@ -75,8 +77,10 @@ export const DisplayItem = (props) => {
                         );
                     })
                     : null}
+                </AnimatePresence>
             </ul>
         </div>
     )
 }
- export default connect(mapStateToProps, mapDispatchToProps)(DisplayItem);
+
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayItem);
